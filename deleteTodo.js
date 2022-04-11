@@ -1,12 +1,6 @@
 function deleteTodo(req, res, todos) {
-  const headers = {
-    "Access-Control-Allow-Headers":
-      "Content-Type, Authorization, Content-Length, X-Requested-With",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "PATCH, POST, GET,OPTIONS,DELETE",
-    "Content-Type": "application/json",
-  };
-  const id = req.url.split("/").pop();
+  const headers = {};
+  const id = req.url.split('/').pop();
   const index = todos.findIndex((element) => element.id === id);
 
   if (index !== -1) {
@@ -14,7 +8,7 @@ function deleteTodo(req, res, todos) {
     res.writeHead(200, headers);
     res.write(
       JSON.stringify({
-        status: "success",
+        status: 'success',
         data: todos,
       })
     );
@@ -24,7 +18,7 @@ function deleteTodo(req, res, todos) {
     res.writeHead(200, headers);
     res.write(
       JSON.stringify({
-        status: "success",
+        status: 'success',
         data: todos,
       })
     );
@@ -34,4 +28,4 @@ function deleteTodo(req, res, todos) {
   }
 }
 
-module.export(deleteTodo);
+module.exports = deleteTodo;
