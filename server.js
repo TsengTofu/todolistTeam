@@ -4,6 +4,7 @@ const errHandle = require('./errorHandle');
 const getTodo = require('./getTodo');
 const postTodo = require('./postTodo');
 const patchTodo = require('./patchTodo');
+const deleteTodo = require('./deleteTodo');
 const todos = [];
 
 const requestListener = (req, res)=>{
@@ -24,9 +25,9 @@ const requestListener = (req, res)=>{
     }else if(req.url=="/todos" && req.method == "POST"){
         postTodo({ req, res, todos });
     }else if(req.url=="/todos" && req.method == "DELETE"){
-        // deleteTodo.js
+        deleteTodo(req, res, todos);
     }else if(req.url.startsWith("/todos/") && req.method=="DELETE"){
-        // deleteTodo.js
+        deleteTodo(req, res, todos);
     }else if(req.url.startsWith("/todos/") && req.method=="PATCH"){
         // patchTodo.js
         patchTodo(res, req, todos);
