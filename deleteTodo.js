@@ -20,7 +20,7 @@ function deleteTodo(req, res, todos) {
       })
     );
     res.end();
-  } else if (index === -1) {
+  } else if (index === -1 && req.url === '/todos') {
     todos.length = 0;
     res.writeHead(200, headers);
     res.write(
