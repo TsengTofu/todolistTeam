@@ -30,7 +30,7 @@ function deleteTodo(req, res, todos) {
     );
     res.end();
   } else {
-    errHandle(res);
+    errorHandle(res);
   }
 }
 
