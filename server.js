@@ -14,11 +14,6 @@ const requestListener = (req, res)=>{
         'Access-Control-Allow-Methods': 'PATCH, POST, GET,OPTIONS,DELETE',
         'Content-Type': 'application/json'
     }
-    let body = "";
-    
-    req.on('data', chunk=>{
-        body+=chunk;
-    })
     
     if(req.url=="/todos" && req.method == "GET"){
         getTodo(res, todos)
