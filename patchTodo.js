@@ -7,6 +7,11 @@ const headers = {
 }
 
 function patchTodo(res, req, todos) {
+  let body = "";
+  req.on("data", (chunk) => {
+    body += chunk;
+  });
+  
  req.on('end', () => {
   try {
    const todo = JSON.parse(body).title;
